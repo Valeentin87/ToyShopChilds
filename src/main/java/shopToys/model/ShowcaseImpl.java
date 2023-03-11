@@ -101,10 +101,10 @@ public class ShowcaseImpl implements  Showcase {
     @Override
     public void savePrizeBasket(List<Toy> toys) {
         ArrayList<String> lines = new ArrayList<>();
-        for (Toy toy: toys) {
-            lines.add(mapper.map(toy));
+        for(int i = 0; i<toys.size();i++){
+            toys.get(i).setQuantity(1);
+            lines.add(mapper.map(toys.get(i)));
         }
-
         try (FileWriter writer = new FileWriter("prizeBasket.txt", false)) {
             for (String line : lines) {
                 // запись всей строки

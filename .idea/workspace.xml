@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd46ef60-ba79-45fd-b91e-083bc123b55a" name="Changes" comment="описал метод создания призовой корзины PrizeBasket в зависимости от общего количества товаров в магазине">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/showcase.txt" beforeDir="false" afterPath="$PROJECT_DIR$/showcase.txt" afterDir="false" />
+    <list default="true" id="cd46ef60-ba79-45fd-b91e-083bc123b55a" name="Changes" comment="Добавил метод сохранения призовой корзины в файл, для дальнейшей работы с ним">
       <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/model/Showcase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/model/Showcase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/model/ShowcaseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/model/ShowcaseImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/view/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/view/Commands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/view/ViewUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/view/ViewUser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678565965914</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Добавил метод сохранения призовой корзины в файл, для дальнейшей работы с ним">
+      <created>1678568387221</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1678568387221</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -179,6 +181,7 @@
     <MESSAGE value="устранил ошибку ConcurrentModificationException в классе Toy" />
     <MESSAGE value="протестировал программу со стороны MANAGER" />
     <MESSAGE value="описал метод создания призовой корзины PrizeBasket в зависимости от общего количества товаров в магазине" />
-    <option name="LAST_COMMIT_MESSAGE" value="описал метод создания призовой корзины PrizeBasket в зависимости от общего количества товаров в магазине" />
+    <MESSAGE value="Добавил метод сохранения призовой корзины в файл, для дальнейшей работы с ним" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил метод сохранения призовой корзины в файл, для дальнейшей работы с ним" />
   </component>
 </project>
