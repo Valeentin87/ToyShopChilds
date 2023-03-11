@@ -43,7 +43,26 @@ public class ShowcaseImpl implements  Showcase {
     }
 
     @Override
-    public void delToyShowcase(String id) {
+    public void delToyShowcase(String uin) {
+        long uinDel = Long.parseLong(uin);
+        long base;
+        List<Toy> toys = getAllToys();
+        for (Toy toy: toys) {
+            base = toy.getUin();
+            if(base == uinDel){
+                toys.remove(toy);
+            }
+            /*
+            else if(base > id){
+                note.setId(String.valueOf(base-1));
+            }
 
+             */
+        }
+        List<String> lines = new ArrayList<>();
+        for (Toy toy: toys) {
+            lines.add(mapper.map(toy));
+        }
+        toysOperation.saveAllToys(lines);
     }
 }
