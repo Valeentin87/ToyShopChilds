@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd46ef60-ba79-45fd-b91e-083bc123b55a" name="Changes" comment="Добавил конструктор в ToysOperationImpl">
+    <list default="true" id="cd46ef60-ba79-45fd-b91e-083bc123b55a" name="Changes" comment="устранил ошибку ConcurrentModificationException в классе Toy">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/showcase.txt" beforeDir="false" afterPath="$PROJECT_DIR$/showcase.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/model/MapperToy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/model/MapperToy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/model/ShowcaseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/model/ShowcaseImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/model/Toy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/model/Toy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/view/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/view/Commands.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/view/ViewUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/view/ViewUser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678541658694</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Добавил 6-й параметр в класс Toy и внёс исправления в оставшиеся файлы в связи с этим">
+      <created>1678543063507</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1678543063507</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -152,6 +162,8 @@
     <MESSAGE value="Добавил UserController и привязал через него методы, описанные в блоке model" />
     <MESSAGE value="реализовал модуль View и метод Main" />
     <MESSAGE value="Добавил конструктор в ToysOperationImpl" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил конструктор в ToysOperationImpl" />
+    <MESSAGE value="Добавил 6-й параметр в класс Toy и внёс исправления в оставшиеся файлы в связи с этим" />
+    <MESSAGE value="устранил ошибку ConcurrentModificationException в классе Toy" />
+    <option name="LAST_COMMIT_MESSAGE" value="устранил ошибку ConcurrentModificationException в классе Toy" />
   </component>
 </project>

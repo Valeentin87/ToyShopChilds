@@ -47,11 +47,13 @@ public class ShowcaseImpl implements  Showcase {
         long uinDel = Long.parseLong(uin);
         long base;
         List<Toy> toys = getAllToys();
-        for (Toy toy: toys) {
-            base = toy.getUin();
+        for(int i = 0;i<toys.size();i++){
+            base = toys.get(i).getUin();
             if(base == uinDel){
-                toys.remove(toy);
+                toys.remove(toys.get(i));
             }
+
+
             /*
             else if(base > id){
                 note.setId(String.valueOf(base-1));

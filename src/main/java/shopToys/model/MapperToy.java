@@ -12,7 +12,7 @@ public class MapperToy {
         }
 
         public Toy map(String line) {
-            String[] lines = line.split(";");
+            String[] lines = line.split(",");
             return new Toy(Integer.parseInt(lines[0]), Long.parseLong(lines[1]), lines[2], lines[3], Double.parseDouble(lines[4]),
                     Integer.parseInt(lines[5]));
         }

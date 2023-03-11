@@ -17,68 +17,64 @@ public class ViewUser {
     }
 
     public void run() {
-        Commands com = Commands.NONE;
+        Commands com1 = Commands.NONE;
 
         while (true) {
-            String command = prompt(ANSI_YELLOW + "************** Добро пожаловать в интернет магазин HappyChildren *************\n" + ANSI_RESET + ANSI_BLUE +
-                    "Введите команду из нижеперечисленных (регистр не важен):" + ANSI_RESET + "\nДобавить товар на витрину:\n\t\t\t\t - " + ANSI_RED + "CREATE" + ANSI_RESET + "\nНайти товар по UIN: \n\t\t\t\t" +
-                    " -" + ANSI_RED + " READ" + ANSI_RESET + "\nУбрать товар с витрины:\n\t\t\t\t -" + ANSI_RED + " DELETE" + ANSI_RESET + "\n" +
-                    "Выйти:\n\t\t\t\t - " + ANSI_RED + "EXIT\n" + ANSI_RESET + ANSI_BLUE + "Поле для ввода команды: " + ANSI_RESET);
-            com = Commands.valueOf(command.toUpperCase());
-            if (com == Commands.EXIT) return;
-            switch (com) {
-                case CREATE:
-                    String id = prompt(ANSI_BLUE + "Порядковый номер в списке товаров: " + ANSI_RESET);
-                    String uin = prompt(ANSI_BLUE + "Уникальный номер(штрих-код) товара: " + ANSI_RESET);
-                    String name = prompt(ANSI_BLUE + "Название игрушки: " + ANSI_RESET);
-                    String type = prompt(ANSI_BLUE + "Тип игрушки: " + ANSI_BLUE);
-                    String price = prompt(ANSI_BLUE + "Цена игрушки: " + ANSI_BLUE);
-                    String quantity = prompt(ANSI_BLUE+"Количество указанного товара: "+ANSI_BLUE);
-                    userController.saveToy(new Toy(Integer.parseInt(id), Long.parseLong(uin), name, type,
-                            Double.parseDouble(price), Integer.parseInt(quantity)));
-                    break;
-                case READ:
-                    String uIn = prompt(ANSI_BLUE + "Игрушку под каким UIN вы хотите посмотреть: " + ANSI_RESET);
-                    try {
-                        Toy toy = userController.readToy(Long.parseLong(uIn));
-                        System.out.println(toy);
-                    } catch (Exception e) {
-                        throw new RuntimeException(e);
+            String command1 = prompt(ANSI_YELLOW + "************** Добро пожаловать в интернет магазин HappyChildren *************\n" + ANSI_RESET +
+                    "Если вы являетесь менеджером введите команду (регистр не важен):" + ANSI_RESET + "\n\t\t\t\t\t\t\t - " + ANSI_RED + "MANAGER" + ANSI_RESET +
+                    "\n\nЕсли вы посетитель магазина введите (регистр не важен): \n\t\t\t\t\t\t\t" +
+                    " -" + ANSI_RED + " USER" + ANSI_RESET + "\n\nЕсли хотите выйти введите (регистр не важен): \n\t\t\t\t\t\t\t" + " -" + ANSI_RED + " EXIT" + ANSI_RESET +
+                    ANSI_BLUE + "\nПоле для ввода команды: " + ANSI_RESET);
+            com1 = Commands.valueOf(command1.toUpperCase());
+            if (com1 == Commands.EXIT) return;
+            switch (com1) {
+                case MANAGER:
+                    String commandManager = prompt(ANSI_RED + "***** Введите пароль ******\n" + ANSI_RESET +
+                            ANSI_BLUE + "Поле для ввода пароля: " + ANSI_RESET);
+                    if (commandManager.equals("shop")) {
+                        commandManager = prompt(ANSI_YELLOW + "************** Уважаемый сотрудник магазина HappyChildren" +
+                                " для работы с каталогом товаров выберите команду *************\n" + ANSI_RESET + ANSI_BLUE +
+                                "Введите команду из нижеперечисленных (регистр не важен):" + ANSI_RESET + "\nДобавить товар на витрину:\n\t\t\t\t - " + ANSI_RED + "CREATE" + ANSI_RESET + "\nНайти товар по UIN: \n\t\t\t\t" +
+                                " -" + ANSI_RED + " READ" + ANSI_RESET + "\nУбрать товар с витрины:\n\t\t\t\t -" + ANSI_RED + " DELETE" + ANSI_RESET + "\n" +
+                                "Выйти:\n\t\t\t\t - " + ANSI_RED + "EXIT\n" + ANSI_RESET + ANSI_BLUE + "Поле для ввода команды: " + ANSI_RESET);
+                        com1 = Commands.valueOf(commandManager.toUpperCase());
+                        switch (com1) {
+                            case CREATE:
+                                String id = prompt(ANSI_BLUE + "Порядковый номер в списке товаров: " + ANSI_RESET);
+                                String uin = prompt(ANSI_BLUE + "Уникальный номер(штрих-код) товара: " + ANSI_RESET);
+                                String name = prompt(ANSI_BLUE + "Название игрушки: " + ANSI_RESET);
+                                String type = prompt(ANSI_BLUE + "Тип игрушки: " + ANSI_BLUE);
+                                String price = prompt(ANSI_BLUE + "Цена игрушки: " + ANSI_BLUE);
+                                String quantity = prompt(ANSI_BLUE + "Количество указанного товара: " + ANSI_BLUE);
+                                userController.saveToy(new Toy(Integer.parseInt(id), Long.parseLong(uin), name, type,
+                                        Double.parseDouble(price), Integer.parseInt(quantity)));
+                                break;
+                            case READ:
+                                String uIn = prompt(ANSI_BLUE + "Введите название игрушки, которую ищете: " + ANSI_RESET);
+                                try {
+                                    Toy toy = userController.readToy(uIn.trim());
+                                    System.out.println(toy);
+                                } catch (Exception e) {
+                                    throw new RuntimeException(e);
+                                }
+                                break;
+                            case DELETE:
+                                System.out.println(ANSI_BLUE + "Ниже указан список имеющихся товаров: " + ANSI_RESET);
+                                userController.viewAllТoys();
+                                String id2 = prompt(ANSI_BLUE + "наберите UIN товара, который хотите удалить: " + ANSI_RESET);
+                                try {
+                                    userController.deleteToy(id2);
+                                    System.out.println(ANSI_RED + "Товар с UIN: " + id2 + " успешно удален c витрины" + ANSI_RESET);
+                                } catch (Exception e) {
+                                    throw new RuntimeException(e);
+                                }
+                        }
                     }
                     break;
-
-/*
-                case UPDATE:
-                    System.out.println(ANSI_BLUE+"Ниже указан список имеющихся заметок: "+ANSI_RESET);
-                    userController.viewAllNotes();
-                    String id1 = prompt(ANSI_BLUE+"наберите порядковый номер какую хотите изменить: "+ANSI_RESET);
-                    try {
-                        Note note = userController.readNote(id1);
-                        System.out.println(note);
-                        userController.updateNote(note);
-                        System.out.println(ANSI_RED+"\t\t\t\t\t\t\t\t\tЗаметка отредактирована"+ANSI_RESET);
-
-                    } catch (Exception e) {
-                        throw new RuntimeException(e);
-                    }
-                    break;
-
- */
-                case DELETE:
-                    System.out.println(ANSI_BLUE + "Ниже указан список имеющихся товаров: " + ANSI_RESET);
-                    userController.viewAllТoys();
-                    String id2 = prompt(ANSI_BLUE + "наберите UIN товара, который хотите удалить: " + ANSI_RESET);
-                    try {
-                        userController.deleteToy(id2);
-                        System.out.println(ANSI_RED + "Товар с UIN: " + id2 + " успешно удален c витрины" + ANSI_RESET);
-                    } catch (Exception e) {
-                        throw new RuntimeException(e);
-                    }
-                    //break;
-
             }
         }
     }
+
     public static String prompt(String message) {
         Scanner in = new Scanner(System.in);
         System.out.print(message);
@@ -86,3 +82,50 @@ public class ViewUser {
     }
 }
 
+/*
+
+
+                    String command = prompt(ANSI_YELLOW + "************** Добро пожаловать в интернет магазин HappyChildren *************\n" + ANSI_RESET + ANSI_BLUE +
+                            "Введите команду из нижеперечисленных (регистр не важен):" + ANSI_RESET + "\nДобавить товар на витрину:\n\t\t\t\t - " + ANSI_RED + "CREATE" + ANSI_RESET + "\nНайти товар по UIN: \n\t\t\t\t" +
+                            " -" + ANSI_RED + " READ" + ANSI_RESET + "\nУбрать товар с витрины:\n\t\t\t\t -" + ANSI_RED + " DELETE" + ANSI_RESET + "\n" +
+                            "Выйти:\n\t\t\t\t - " + ANSI_RED + "EXIT\n" + ANSI_RESET + ANSI_BLUE + "Поле для ввода команды: " + ANSI_RESET);
+                    com = Commands.valueOf(command.toUpperCase());
+                    if (com == Commands.EXIT) return;
+                    switch (com) {
+                        case CREATE:
+                            String id = prompt(ANSI_BLUE + "Порядковый номер в списке товаров: " + ANSI_RESET);
+                            String uin = prompt(ANSI_BLUE + "Уникальный номер(штрих-код) товара: " + ANSI_RESET);
+                            String name = prompt(ANSI_BLUE + "Название игрушки: " + ANSI_RESET);
+                            String type = prompt(ANSI_BLUE + "Тип игрушки: " + ANSI_BLUE);
+                            String price = prompt(ANSI_BLUE + "Цена игрушки: " + ANSI_BLUE);
+                            String quantity = prompt(ANSI_BLUE + "Количество указанного товара: " + ANSI_BLUE);
+                            userController.saveToy(new Toy(Integer.parseInt(id), Long.parseLong(uin), name, type,
+                                    Double.parseDouble(price), Integer.parseInt(quantity)));
+                            break;
+                        case READ:
+                            String uIn = prompt(ANSI_BLUE + "Введите название игрушки, которую ищете: " + ANSI_RESET);
+                            try {
+                                Toy toy = userController.readToy(uIn.trim());
+                                System.out.println(toy);
+                            } catch (Exception e) {
+                                throw new RuntimeException(e);
+                            }
+                            break;
+
+
+                        case DELETE:
+                            System.out.println(ANSI_BLUE + "Ниже указан список имеющихся товаров: " + ANSI_RESET);
+                            userController.viewAllТoys();
+                            String id2 = prompt(ANSI_BLUE + "наберите UIN товара, который хотите удалить: " + ANSI_RESET);
+                            try {
+                                userController.deleteToy(id2);
+                                System.out.println(ANSI_RED + "Товар с UIN: " + id2 + " успешно удален c витрины" + ANSI_RESET);
+                            } catch (Exception e) {
+                                throw new RuntimeException(e);
+                            }
+                            //break;
+
+                    }
+
+
+*/

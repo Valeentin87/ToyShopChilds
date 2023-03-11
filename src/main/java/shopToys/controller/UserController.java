@@ -35,10 +35,10 @@ public class UserController {
     }
 
 
-    public Toy readToy(long toyUin) throws Exception {
+    public Toy readToy(String name) throws Exception {
         List<Toy> toys = showcase.getAllToys();
         for (Toy toy : toys) {
-            if (toy.getUin() == toyUin) {
+            if (toy.getName().equals(name)) {
                 return toy;
             }
         }
