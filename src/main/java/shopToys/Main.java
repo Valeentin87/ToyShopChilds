@@ -1,7 +1,19 @@
 package shopToys;
 
+import shopToys.controller.UserController;
+import shopToys.model.Showcase;
+import shopToys.model.ShowcaseImpl;
+import shopToys.model.ToysOperation;
+import shopToys.model.ToysOperationImpl;
+import shopToys.view.ViewUser;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        ToysOperation toysOperation = new ToysOperationImpl("showcase.txt");
+        Showcase showcase = new ShowcaseImpl(toysOperation);
+
+        UserController controller = new UserController(showcase);
+        ViewUser view = new ViewUser(controller);
+        view.run();
     }
 }

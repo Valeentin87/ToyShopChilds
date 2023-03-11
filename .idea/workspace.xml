@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd46ef60-ba79-45fd-b91e-083bc123b55a" name="Changes" comment="Добавил метод, позволяющий убирать купленный товар с витрины">
-      <change afterPath="$PROJECT_DIR$/src/main/java/shopToys/controller/UserController.java" afterDir="false" />
+    <list default="true" id="cd46ef60-ba79-45fd-b91e-083bc123b55a" name="Changes" comment="Добавил UserController и привязал через него методы, описанные в блоке model">
+      <change afterPath="$PROJECT_DIR$/src/main/java/shopToys/view/Commands.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/shopToys/view/ViewUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +20,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -84,7 +87,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678537872307</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Добавил UserController и привязал через него методы, описанные в блоке model">
+      <created>1678539097165</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1678539097165</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -104,6 +114,7 @@
     <MESSAGE value="Добавил класс и нтерфейс по работе с игрушками" />
     <MESSAGE value="Добавил интерфейс и класс по работе с витриной магазина, описал методы выставления игрушки на продажу и получения списка всех игрушек" />
     <MESSAGE value="Добавил метод, позволяющий убирать купленный товар с витрины" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил метод, позволяющий убирать купленный товар с витрины" />
+    <MESSAGE value="Добавил UserController и привязал через него методы, описанные в блоке model" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил UserController и привязал через него методы, описанные в блоке model" />
   </component>
 </project>
