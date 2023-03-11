@@ -3,6 +3,7 @@ package shopToys.controller;
 import shopToys.model.Showcase;
 import shopToys.model.Toy;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserController {
@@ -32,6 +33,19 @@ public class UserController {
         for (Toy toy : toys) {
             System.out.println(toy);
         }
+    }
+
+    public void viewAllТoys(ArrayList<Toy> toys) {
+        for (Toy toy : toys) {
+            System.out.println(toy);
+        }
+    }
+
+
+    public  void CreatePrizeBasket(){
+        ArrayList<Toy> prizeToys = showcase.PrizeBasket();
+        viewAllТoys(prizeToys);
+
     }
 
 

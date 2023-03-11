@@ -2,6 +2,7 @@ package shopToys.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class ShowcaseImpl implements  Showcase {
     private MapperToy mapper = new MapperToy();
@@ -66,5 +67,33 @@ public class ShowcaseImpl implements  Showcase {
             lines.add(mapper.map(toy));
         }
         toysOperation.saveAllToys(lines);
+    }
+
+    @Override
+    public ArrayList<Toy> PrizeBasket() {
+        ArrayList<Toy> allToys = new ArrayList<>(getAllToys());
+        ArrayList<Toy> allToysInString = new ArrayList<>();
+
+        ArrayList<Toy> prizeToys = new ArrayList<>();
+        int allToysNumber = 0;
+        int toyCount;
+        for(int i = 0; i<allToys.size(); i++){
+            toyCount = allToys.get(i).getQuantity();
+            allToysNumber+=toyCount;
+            for(int j=0;j<toyCount;j++){
+                allToysInString.add(allToys.get(i));
+            }
+        }
+        int prizeNumber;
+        if (allToysNumber>100) prizeNumber=allToysNumber/20;
+        else prizeNumber=allToysNumber/10;
+        Random rnd = new Random();
+        int rndNumber;
+        for (int j = 0; j<prizeNumber;j++){
+            rndNumber = rnd.nextInt(0,allToysInString.size());
+            prizeToys.add(allToysInString.get(rndNumber));
+            allToysInString.remove(rndNumber);
+        }
+        return prizeToys;
     }
 }

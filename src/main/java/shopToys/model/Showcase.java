@@ -1,5 +1,6 @@
 package shopToys.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface Showcase {
@@ -8,4 +9,6 @@ public interface Showcase {
     //void NewVersionNote(Note note);
 
     void delToyShowcase(String id);
+
+    ArrayList<Toy> PrizeBasket();
 }
