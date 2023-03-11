@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd46ef60-ba79-45fd-b91e-083bc123b55a" name="Changes" comment="создал класс игрушка, аннотации, определил метод сравнения игрушек">
-      <change afterPath="$PROJECT_DIR$/src/main/java/shopToys/model/MapperToy.java" afterDir="false" />
+    <list default="true" id="cd46ef60-ba79-45fd-b91e-083bc123b55a" name="Changes" comment="создал класс MapperToy с аннотациями">
+      <change afterPath="$PROJECT_DIR$/src/main/java/shopToys/model/ToysOperation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/shopToys/model/ToysOperationImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -16,6 +17,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -34,9 +36,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -55,7 +57,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678530401239</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="создал класс MapperToy с аннотациями">
+      <created>1678531825419</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1678531825419</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -71,6 +80,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="создал класс игрушка, аннотации, определил метод сравнения игрушек" />
-    <option name="LAST_COMMIT_MESSAGE" value="создал класс игрушка, аннотации, определил метод сравнения игрушек" />
+    <MESSAGE value="создал класс MapperToy с аннотациями" />
+    <option name="LAST_COMMIT_MESSAGE" value="создал класс MapperToy с аннотациями" />
   </component>
 </project>
