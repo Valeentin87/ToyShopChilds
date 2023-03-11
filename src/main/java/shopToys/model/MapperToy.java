@@ -7,7 +7,7 @@ package shopToys.model;
 public class MapperToy {
 
         public static String map(Toy toy) {
-            return String.format("%d,%d,%s,%s,%s,%d", toy.getId(),toy.getUin(), toy.getName(), toy.getType(),
+            return String.format("%-3d,%-6d,%-25s,%-25s,%-12f,%-3d", toy.getId(),toy.getUin(), toy.getName(), toy.getType(),
                                                                                 toy.getPrice(),toy.getQuantity());
         }
 
