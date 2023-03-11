@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd46ef60-ba79-45fd-b91e-083bc123b55a" name="Changes" comment="Добавил интерфейс и класс по работе с витриной магазина, описал методы выставления игрушки на продажу и получения списка всех игрушек">
+    <list default="true" id="cd46ef60-ba79-45fd-b91e-083bc123b55a" name="Changes" comment="Добавил метод, позволяющий убирать купленный товар с витрины">
+      <change afterPath="$PROJECT_DIR$/src/main/java/shopToys/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/model/ShowcaseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/model/ShowcaseImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +77,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678536370625</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Добавил метод, позволяющий убирать купленный товар с витрины">
+      <created>1678537872307</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1678537872307</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -96,6 +103,7 @@
     <MESSAGE value="создал класс MapperToy с аннотациями" />
     <MESSAGE value="Добавил класс и нтерфейс по работе с игрушками" />
     <MESSAGE value="Добавил интерфейс и класс по работе с витриной магазина, описал методы выставления игрушки на продажу и получения списка всех игрушек" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил интерфейс и класс по работе с витриной магазина, описал методы выставления игрушки на продажу и получения списка всех игрушек" />
+    <MESSAGE value="Добавил метод, позволяющий убирать купленный товар с витрины" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил метод, позволяющий убирать купленный товар с витрины" />
   </component>
 </project>
