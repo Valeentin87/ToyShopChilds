@@ -9,6 +9,7 @@ public enum Commands {
     UPDATE,
     LIST,
     DELETE,
+    PRIZEBASKET,
     SAVE,
     EXIT
 }

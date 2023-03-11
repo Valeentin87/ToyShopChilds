@@ -1,5 +1,7 @@
 package shopToys.model;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -95,5 +97,24 @@ public class ShowcaseImpl implements  Showcase {
             allToysInString.remove(rndNumber);
         }
         return prizeToys;
+    }
+    @Override
+    public void savePrizeBasket(List<Toy> toys) {
+        ArrayList<String> lines = new ArrayList<>();
+        for (Toy toy: toys) {
+            lines.add(mapper.map(toy));
+        }
+
+        try (FileWriter writer = new FileWriter("prizeBasket.txt", false)) {
+            for (String line : lines) {
+                // запись всей строки
+                writer.write(line);
+                // запись по символам
+                writer.append('\n');
+            }
+            writer.flush();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 }

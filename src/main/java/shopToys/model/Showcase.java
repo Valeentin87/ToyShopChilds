@@ -11,4 +11,5 @@ public interface Showcase {
     void delToyShowcase(String id);
 
     ArrayList<Toy> PrizeBasket();
+    void savePrizeBasket(List<Toy> toys);
 }

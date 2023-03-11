@@ -45,7 +45,7 @@ public class UserController {
     public  void CreatePrizeBasket(){
         ArrayList<Toy> prizeToys = showcase.PrizeBasket();
         viewAllТoys(prizeToys);
-
+        showcase.savePrizeBasket(prizeToys);
     }
 
 

@@ -29,48 +29,55 @@ public class ViewUser {
             if (com1 == Commands.EXIT) return;
             switch (com1) {
                 case MANAGER:
-                    String commandManager = prompt(ANSI_RED + "***** Введите пароль ******\n" + ANSI_RESET +
-                            ANSI_BLUE + "Поле для ввода пароля: " + ANSI_RESET);
-                    if (commandManager.equals("shop")) {
-                        commandManager = prompt(ANSI_YELLOW + "************** Уважаемый сотрудник магазина HappyChildren" +
-                                " для работы с каталогом товаров выберите команду *************\n" + ANSI_RESET + ANSI_BLUE +
-                                "Введите команду из нижеперечисленных (регистр не важен):" + ANSI_RESET + "\nДобавить товар на витрину:\n\t\t\t\t - " + ANSI_RED + "CREATE" + ANSI_RESET + "\nНайти товар по UIN: \n\t\t\t\t" +
-                                " -" + ANSI_RED + " READ" + ANSI_RESET + "\nУбрать товар с витрины:\n\t\t\t\t -" + ANSI_RED + " DELETE" + ANSI_RESET + "\n" +
-                                "Выйти:\n\t\t\t\t - " + ANSI_RED + "EXIT\n" + ANSI_RESET + ANSI_BLUE + "Поле для ввода команды: " + ANSI_RESET);
-                        com1 = Commands.valueOf(commandManager.toUpperCase());
-                        switch (com1) {
-                            case CREATE:
-                                String id = prompt(ANSI_BLUE + "Порядковый номер в списке товаров: " + ANSI_RESET);
-                                String uin = prompt(ANSI_BLUE + "Уникальный номер(штрих-код) товара: " + ANSI_RESET);
-                                String name = prompt(ANSI_BLUE + "Название игрушки: " + ANSI_RESET);
-                                String type = prompt(ANSI_BLUE + "Тип игрушки: " + ANSI_BLUE);
-                                String price = prompt(ANSI_BLUE + "Цена игрушки: " + ANSI_BLUE);
-                                String quantity = prompt(ANSI_BLUE + "Количество указанного товара: " + ANSI_BLUE);
-                                userController.saveToy(new Toy(Integer.parseInt(id), Long.parseLong(uin), name, type,
-                                        Double.parseDouble(price), Integer.parseInt(quantity)));
-                                break;
-                            case READ:
-                                String uIn = prompt(ANSI_BLUE + "Введите название игрушки, которую ищете: " + ANSI_RESET);
-                                try {
-                                    Toy toy = userController.readToy(uIn.trim());
-                                    System.out.println(toy);
-                                } catch (Exception e) {
-                                    throw new RuntimeException(e);
-                                }
-                                break;
-                            case DELETE:
-                                System.out.println(ANSI_BLUE + "Ниже указан список имеющихся товаров: " + ANSI_RESET);
-                                userController.viewAllТoys();
-                                String id2 = prompt(ANSI_BLUE + "наберите UIN товара, который хотите удалить: " + ANSI_RESET);
-                                try {
-                                    userController.deleteToy(id2);
-                                    System.out.println(ANSI_RED + "Товар с UIN: " + id2 + " успешно удален c витрины" + ANSI_RESET);
-                                } catch (Exception e) {
-                                    throw new RuntimeException(e);
-                                }
+                    while (true) {
+                        String commandManager = prompt(ANSI_RED + "***** Введите пароль ******\n" + ANSI_RESET +
+                                ANSI_BLUE + "Поле для ввода пароля: " + ANSI_RESET);
+                        if (commandManager.equals("shop")) {
+                            commandManager = prompt(ANSI_YELLOW + "************** Уважаемый сотрудник магазина HappyChildren" +
+                                    " для работы с каталогом товаров выберите команду *************\n" + ANSI_RESET + ANSI_BLUE +
+                                    "Введите команду из нижеперечисленных (регистр не важен):" + ANSI_RESET + "\nДобавить товар на витрину:\n\t\t\t\t - " + ANSI_RED + "CREATE" + ANSI_RESET + "\nНайти товар по UIN: \n\t\t\t\t" +
+                                    " -" + ANSI_RED + " READ" + ANSI_RESET + "\nСформировать призовую корзину: \n\t\t\t\t" + ANSI_RED + "PRIZEBASKET\n" + ANSI_RESET + "\nУбрать товар с витрины:\n\t\t\t\t -" + ANSI_RED + " DELETE" + ANSI_RESET + "\n" +
+                                    "Выйти:\n\t\t\t\t - " + ANSI_RED + "EXIT\n" + ANSI_RESET + ANSI_BLUE + "Поле для ввода команды: " + ANSI_RESET);
+                            com1 = Commands.valueOf(commandManager.toUpperCase());
+                            switch (com1) {
+                                case CREATE:
+                                    String id = prompt(ANSI_BLUE + "Порядковый номер в списке товаров: " + ANSI_RESET);
+                                    String uin = prompt(ANSI_BLUE + "Уникальный номер(штрих-код) товара: " + ANSI_RESET);
+                                    String name = prompt(ANSI_BLUE + "Название игрушки: " + ANSI_RESET);
+                                    String type = prompt(ANSI_BLUE + "Тип игрушки: " + ANSI_BLUE);
+                                    String price = prompt(ANSI_BLUE + "Цена игрушки: " + ANSI_BLUE);
+                                    String quantity = prompt(ANSI_BLUE + "Количество указанного товара: " + ANSI_BLUE);
+                                    userController.saveToy(new Toy(Integer.parseInt(id), Long.parseLong(uin), name, type,
+                                            Double.parseDouble(price), Integer.parseInt(quantity)));
+                                    break;
+                                case READ:
+                                    String uIn = prompt(ANSI_BLUE + "Введите название игрушки, которую ищете: " + ANSI_RESET);
+                                    try {
+                                        Toy toy = userController.readToy(uIn.trim());
+                                        System.out.println(toy);
+                                    } catch (Exception e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                    break;
+                                case DELETE:
+                                    System.out.println(ANSI_BLUE + "Ниже указан список имеющихся товаров: " + ANSI_RESET);
+                                    userController.viewAllТoys();
+                                    String id2 = prompt(ANSI_BLUE + "наберите UIN товара, который хотите удалить: " + ANSI_RESET);
+                                    try {
+                                        userController.deleteToy(id2);
+                                        System.out.println(ANSI_RED + "Товар с UIN: " + id2 + " успешно удален c витрины" + ANSI_RESET);
+                                    } catch (Exception e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                    break;
+                                case PRIZEBASKET:
+                                    System.out.println(ANSI_BLUE + "Сформирована корзина призовых товаров: " + ANSI_RESET);
+                                    userController.CreatePrizeBasket();
+
+                            }
                         }
+                        break;
                     }
-                    break;
             }
         }
     }
