@@ -6,17 +6,20 @@ package shopToys.model;
 public class Toy {
     public String name;
     public String type;
-    public long id;
+    public int id;
+    public long uin;
     double price;
 
     /**
      * Конструктор
-     * @param id поле: уникальный номер товара (игрушки)
+     * @param uin поле: уникальный номер товара (штрих-код)
+     * @param id поле: порядковый номер в списке игрушек
      * @param name поле: название игрушки
      * @param type поле: тип игрушки
      * @param price поле: цена товара
      */
-    public Toy(long id, String name, String type, double price){
+    public Toy(int id, long uin, String name, String type, double price){
+        this.uin = uin;
         this.id = id;
         this.name = name;
         this.price = price;
@@ -30,6 +33,18 @@ public class Toy {
         return name;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public long getUin() {
+        return uin;
+    }
+
+    public void setUin(long uin) {
+        this.uin = uin;
+    }
+
     public String getType() {
         return type;
     }
@@ -38,9 +53,7 @@ public class Toy {
         this.type = type;
     }
 
-    public long getId() {
-        return id;
-    }
+
 
     public double getPrice() {
         return price;
@@ -51,9 +64,7 @@ public class Toy {
         this.name = name;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+
 
     public void setPrice(double price) {
         this.price = price;
@@ -69,7 +80,10 @@ public class Toy {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Toy toy = (Toy) o;
-        return id == toy.id;
+        return uin == toy.uin;
     }
 
+    public int getId() {
+        return id;
+    }
 }
