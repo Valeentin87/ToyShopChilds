@@ -9,7 +9,14 @@ import java.util.List;
  * Описывает действия над игрушками, имплементируя интерфейс ToyOperation
  */
 public class ToysOperationImpl implements ToysOperation {
-
+    public ToysOperationImpl(String fileName) {
+        this.fileName = fileName;
+        try (FileWriter writer = new FileWriter(fileName, true)) {
+            writer.flush();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
     private String fileName;
     @Override
     public List<String> readAllToys() {
