@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd46ef60-ba79-45fd-b91e-083bc123b55a" name="Changes" comment="реализовал модуль View и метод Main">
-      <change afterPath="$PROJECT_DIR$/showcase.txt" afterDir="false" />
+    <list default="true" id="cd46ef60-ba79-45fd-b91e-083bc123b55a" name="Changes" comment="Добавил конструктор в ToysOperationImpl">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/showcase.txt" beforeDir="false" afterPath="$PROJECT_DIR$/showcase.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/model/MapperToy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/model/MapperToy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/model/Toy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/model/Toy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/view/ViewUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/view/ViewUser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +44,26 @@
     "RunOnceActivity.ShowReadmeOnStart": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="shopToys.Main" />
+      <module name="ToyShopChilds" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="shopToys.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -99,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678541259099</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Добавил конструктор в ToysOperationImpl">
+      <created>1678541658694</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1678541658694</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -121,6 +151,7 @@
     <MESSAGE value="Добавил метод, позволяющий убирать купленный товар с витрины" />
     <MESSAGE value="Добавил UserController и привязал через него методы, описанные в блоке model" />
     <MESSAGE value="реализовал модуль View и метод Main" />
-    <option name="LAST_COMMIT_MESSAGE" value="реализовал модуль View и метод Main" />
+    <MESSAGE value="Добавил конструктор в ToysOperationImpl" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил конструктор в ToysOperationImpl" />
   </component>
 </project>

@@ -10,6 +10,8 @@ public class Toy {
     public long uin;
     double price;
 
+    int quantity;
+
     /**
      * Конструктор
      * @param uin поле: уникальный номер товара (штрих-код)
@@ -17,16 +19,25 @@ public class Toy {
      * @param name поле: название игрушки
      * @param type поле: тип игрушки
      * @param price поле: цена товара
+     * @param quantity поле: количество товара данного наименования
      */
-    public Toy(int id, long uin, String name, String type, double price){
+    public Toy(int id, long uin, String name, String type, double price, int quantity){
         this.uin = uin;
         this.id = id;
         this.name = name;
         this.price = price;
         this.type = type;
+        this.quantity = quantity;
     }
 
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
     // геттеры
     public String getName() {
