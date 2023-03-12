@@ -35,15 +35,17 @@ public class UserController {
         try (FileWriter writer = new FileWriter("userBasket.txt", false)) {
             double pricePosition = 0;
             double priceBasket =0;
+
             for (int i=0;i<userBasket.size();i++) {
                 // запись всей строки
                 pricePosition = userBasket.get(i).getPrice()*userBasket.get(i).getQuantity();
                 priceBasket+=pricePosition;
-                writer.write(String.valueOf(i+1)+".\t\t\t"+userBasket.get(i).getName()+".\t\t\t"+String.valueOf(userBasket.get(i).getQuantity())+" штуки "+
-                        ".\t\t\tНа сумму: " + String.valueOf(pricePosition));
+                writer.write(String.valueOf(i+1)+". "+userBasket.get(i).getName()+". "+String.valueOf(userBasket.get(i).getQuantity())+". штуки "+
+                        ". На сумму: " + String.valueOf(pricePosition));
                 // запись по символам
                 writer.append('\n');
             }
+            writer.write("---------------------------------------------------\n");
             writer.write("Общая стоимость заказа составляет - "+String.valueOf(priceBasket));
             writer.flush();
         } catch (IOException ex) {
