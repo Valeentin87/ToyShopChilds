@@ -83,8 +83,8 @@ public class ViewUser {
                     while (true) {
                             String commandManager = prompt(ANSI_YELLOW + "************** ДОБРО ПОЖАЛОВАТЬ в интернет магазин HappyChildren" +
                                     " для работы с каталогом товаров выберите команду *************\n" + ANSI_RESET + ANSI_BLUE +
-                                    "Введите команду из нижеперечисленных (регистр не важен):" + ANSI_RESET + "\nПросмотреть имеющийся товар:\n\t\t\t\t - " + ANSI_RED + "VIEW" + ANSI_RESET + "\nНайти товар по названию: \n\t\t\t\t" +
-                                    " -" + ANSI_RED + " READ" + ANSI_RESET + "\nПоложить товар в корзину: \n\t\t\t\t" +" -"+ ANSI_RED + "  PUT" + ANSI_RESET + "\nОплатить выбранное: \n\t\t\t\t -" + ANSI_RED + " CASE" + ANSI_RESET + "\n" +"\nПосмотреть победителей розыгрыша призовой корзины \n\t\t\t\t -" + ANSI_RED + " CASE" + ANSI_RESET+
+                                    "Введите команду из нижеперечисленных (регистр не важен):" + ANSI_RESET + "\nПросмотреть весь имеющийся ассортимент:\n\t\t\t\t - " + ANSI_RED + "VIEW" + ANSI_RESET + "\nНайти товар по названию: \n\t\t\t\t" +
+                                    " -" + ANSI_RED + " READ" + ANSI_RESET + "\nОформить заказ: \n\t\t\t\t" +" -"+ ANSI_RED + "  PUT" + ANSI_RESET + "\nПосмотреть победителей розыгрыша призовой корзины \n\t\t\t\t -" + ANSI_RED + " FORTUNE" + ANSI_RESET+
                                     "\nВернуться назад:\n\t\t\t\t - " + ANSI_RED + "BACK\n" + ANSI_RESET + ANSI_BLUE + "Поле для ввода команды: " + ANSI_RESET);
                             com1 = Commands.valueOf(commandManager.toUpperCase());
                             if (com1 == Commands.BACK) break;
@@ -108,16 +108,17 @@ public class ViewUser {
                                     ArrayList<String> basketNumbers = new ArrayList<>();
                                     String endBasket = " ";
                                     do {
-                                        String uinToy = prompt(ANSI_BLUE + "Наберите UIN товара, который хотите положить в корзину: \n " + ANSI_RESET);
+                                        String uinToy = prompt(ANSI_BLUE + "Наберите UIN товара, который хотите добавить в заказ: \n " + ANSI_RESET);
                                         String numberToys = prompt(ANSI_BLUE + "Введите количество товара сколько хотите приобрести: \n" + ANSI_RESET);
                                         basketUIN.add(uinToy);
                                         basketNumbers.add(numberToys);
-                                        endBasket = prompt("Вы завершили формировать корзину покупок (Да/Нет)?\nПоле для ввода: ");
+                                        endBasket = prompt("Вы завершили формировать заказ (Да/Нет)?\nПоле для ввода: ");
                                     }
                                     while (!endBasket.toUpperCase().equals("ДА"));
                                     try {
                                         userController.getUserBasket(basketUIN,basketNumbers);
-                                        System.out.printf(ANSI_RED + "\nсформирована пользовательская корзина, содержимое в файле userBasket.txt\n"+ ANSI_RESET);
+
+                                        System.out.printf(ANSI_RED + "\n сформирован заказ под номером " + userController.getNumberOrder()+ "\n содержимое в файле userBasket.txt\n Оплатить заказ необходимо на пункте выдачи\n"+ ANSI_RESET);
                                     } catch (Exception e) {
                                         throw new RuntimeException(e);
                                     }

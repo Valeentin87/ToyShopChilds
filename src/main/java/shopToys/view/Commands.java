@@ -10,6 +10,7 @@ public enum Commands {
     PUT,
     DELETE,
     PRIZEBASKET,
+    FORTUNE,
     CASE,
     EXIT,
     BACK

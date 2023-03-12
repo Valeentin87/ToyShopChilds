@@ -1,10 +1,7 @@
 package shopToys.model;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.io.*;
+import java.util.*;
 
 public class ShowcaseImpl implements  Showcase {
     private MapperToy mapper = new MapperToy();
@@ -137,12 +134,12 @@ public class ShowcaseImpl implements  Showcase {
                 }
                 else {
                     flag = true;
-                    System.out.printf("Ошибка формирования корзины: Товар с UIN: %s в наличии только %s штук\n ",uinToy,allToys.get(i).getQuantity());
+                    System.out.printf("Ошибка формирования заказа: Товар с UIN: %s в наличии только %s штук\n ",uinToy,allToys.get(i).getQuantity());
                 }
             }
 
         }
-        if ((userBasket.getQuantity() == 0) & !flag) System.out.printf("Ошибка формирования корзины: Товар с UIN: %s в магазине отсутствует\n ",uinToy);
+        if ((userBasket.getQuantity() == 0) & !flag) System.out.printf("Ошибка формирования заказа: Товар с UIN: %s в магазине отсутствует\n ",uinToy);
         return userBasket;
     }
     @Override
@@ -152,5 +149,53 @@ public class ShowcaseImpl implements  Showcase {
             basketUser.add(returnToyShowcase(allUin.get(i),allNumbers.get(i)));
         }
         return basketUser;
+    }
+
+    @Override
+    public String getUinOrder() {
+        Random rndUinOrder = new Random();
+        int uinOrder = 0;
+        String uinOrderStr = null;
+        Set<String> lastUinOrders = new HashSet<>();
+        List<String> lines = new ArrayList<>();
+        try {
+            File file = new File("uinOrders.txt");
+            FileReader fr = new FileReader(file);
+            BufferedReader reader = new BufferedReader(fr);
+            String line = reader.readLine();
+            if (line != null) {
+                lastUinOrders.add(line.trim());
+            }
+            while (line != null) {
+                // считываем остальные строки в цикле
+                line = reader.readLine();
+                if (line != null) {
+                    lastUinOrders.add(line.trim());
+                }
+            }
+            fr.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        do{
+            uinOrder = rndUinOrder.nextInt(1000);
+            uinOrderStr = Integer.toString(uinOrder);
+        }
+        while (!lastUinOrders.add(uinOrderStr));
+        try (FileWriter writer = new FileWriter("uinOrders.txt", false)) {
+                for (String line : lastUinOrders) {
+                // запись всей строки
+                writer.write(line);
+                // запись по символам
+                writer.append('\n');
+            }
+            writer.flush();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return uinOrderStr;
+
     }
 }

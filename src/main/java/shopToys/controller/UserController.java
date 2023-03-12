@@ -44,7 +44,7 @@ public class UserController {
                 // запись по символам
                 writer.append('\n');
             }
-            writer.write("Общая стоимость покупки составляет - "+String.valueOf(priceBasket));
+            writer.write("Общая стоимость заказа составляет - "+String.valueOf(priceBasket));
             writer.flush();
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
@@ -87,6 +87,10 @@ public class UserController {
             }
         }
         throw new Exception("Toy not found");
+    }
+
+    public String getNumberOrder(){
+        return showcase.getUinOrder();
     }
 
 }

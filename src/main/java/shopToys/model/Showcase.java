@@ -2,6 +2,7 @@ package shopToys.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public interface Showcase {
     List<Toy> getAllToys();
@@ -16,4 +17,6 @@ public interface Showcase {
     Toy returnToyShowcase(String uinToy,String numberToys);
 
     List<Toy> getBasket(ArrayList<String> allUin, ArrayList<String> allNumbers);
+
+    String getUinOrder();
 }
