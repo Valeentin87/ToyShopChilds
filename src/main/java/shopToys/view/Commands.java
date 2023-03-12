@@ -6,10 +6,10 @@ public enum Commands {
     USER,
     READ,
     CREATE,
-    UPDATE,
-    LIST,
+    VIEW,
+    PUT,
     DELETE,
     PRIZEBASKET,
-    SAVE,
+    CASE,
     EXIT
 }
