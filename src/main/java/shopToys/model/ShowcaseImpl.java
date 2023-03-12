@@ -52,20 +52,36 @@ public class ShowcaseImpl implements  Showcase {
             if(base == uinDel){
                 toys.remove(toys.get(i));
             }
-
-
-            /*
-            else if(base > id){
-                note.setId(String.valueOf(base-1));
-            }
-
-             */
         }
         List<String> lines = new ArrayList<>();
         for (Toy toy: toys) {
             lines.add(mapper.map(toy));
         }
         toysOperation.saveAllToys(lines);
+    }
+
+    public void delToyShowcase(String name, String quantity) {
+        String  base;
+        int newQuantity = 0;
+        List<Toy> toys = getAllToys();
+        for(int i = 0;i<toys.size();i++){
+            base = toys.get(i).getName();
+            if((base.equals(name))){
+                if (String.valueOf(toys.get(i).getQuantity()).equals(quantity)){
+                    toys.remove(toys.get(i));
+                }
+                else {
+                    newQuantity = toys.get(i).getQuantity();
+                    newQuantity-=Integer.parseInt(quantity.trim());
+                    toys.get(i).setQuantity(newQuantity);
+                }
+            }
+        List<String> lines = new ArrayList<>();
+        for (Toy toy: toys) {
+            lines.add(mapper.map(toy));
+        }
+        toysOperation.saveAllToys(lines);
+    }
     }
 
     @Override

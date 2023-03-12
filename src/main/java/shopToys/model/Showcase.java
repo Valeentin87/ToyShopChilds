@@ -19,4 +19,6 @@ public interface Showcase {
     List<Toy> getBasket(ArrayList<String> allUin, ArrayList<String> allNumbers);
 
     String getUinOrder();
+
+
 }
