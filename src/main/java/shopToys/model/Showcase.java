@@ -14,4 +14,6 @@ public interface Showcase {
     void savePrizeBasket(List<Toy> toys);
 
     Toy returnToyShowcase(String uinToy,String numberToys);
+
+    List<Toy> getBasket(ArrayList<String> allUin, ArrayList<String> allNumbers);
 }

@@ -137,12 +137,20 @@ public class ShowcaseImpl implements  Showcase {
                 }
                 else {
                     flag = true;
-                    System.out.printf("Товар с UIN: %s в наличии только %s штук\n ",uinToy,allToys.get(i).getQuantity());
+                    System.out.printf("Ошибка формирования корзины: Товар с UIN: %s в наличии только %s штук\n ",uinToy,allToys.get(i).getQuantity());
                 }
             }
 
         }
-        if ((userBasket.getQuantity() == 0) & !flag) System.out.printf("Товар с UIN: %s в магазине отсутствует\n ",uinToy);
+        if ((userBasket.getQuantity() == 0) & !flag) System.out.printf("Ошибка формирования корзины: Товар с UIN: %s в магазине отсутствует\n ",uinToy);
         return userBasket;
+    }
+    @Override
+    public List<Toy> getBasket(ArrayList<String> allUin, ArrayList<String> allNumbers){
+        List<Toy> basketUser = new ArrayList<>();
+        for(int i=0;i<allUin.size();i++){
+            basketUser.add(returnToyShowcase(allUin.get(i),allNumbers.get(i)));
+        }
+        return basketUser;
     }
 }

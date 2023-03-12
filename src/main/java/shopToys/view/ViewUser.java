@@ -3,6 +3,7 @@ package shopToys.view;
 import shopToys.controller.UserController;
 import shopToys.model.Toy;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ViewUser {
@@ -103,11 +104,20 @@ public class ViewUser {
                                     continue;
                                 case PUT:
                                     userController.viewAllТoys();
-                                    String uinToy = prompt(ANSI_BLUE + "Наберите UIN товара, который хотите положить в корзину: \n " + ANSI_RESET);
-                                    String numberToys = prompt(ANSI_BLUE + "Введите количество товара сколько хотите приобрести: \n" + ANSI_RESET);
+                                    ArrayList<String> basketUIN = new ArrayList<>();
+                                    ArrayList<String> basketNumbers = new ArrayList<>();
+                                    String endBasket = " ";
+                                    do {
+                                        String uinToy = prompt(ANSI_BLUE + "Наберите UIN товара, который хотите положить в корзину: \n " + ANSI_RESET);
+                                        String numberToys = prompt(ANSI_BLUE + "Введите количество товара сколько хотите приобрести: \n" + ANSI_RESET);
+                                        basketUIN.add(uinToy);
+                                        basketNumbers.add(numberToys);
+                                        endBasket = prompt("Вы завершили формировать корзину покупок (Да/Нет)?\nПоле для ввода: ");
+                                    }
+                                    while (!endBasket.toUpperCase().equals("ДА"));
                                     try {
-                                        userController.putInBasket(uinToy,numberToys);
-                                       // System.out.printf(ANSI_RED + "\nВ пользовательскую корзину добавлен Товар с UIN: " + uinToy + " в количестве "+numberToys +"\n"+ ANSI_RESET);
+                                        userController.getUserBasket(basketUIN,basketNumbers);
+                                        System.out.printf(ANSI_RED + "\nсформирована пользовательская корзина, содержимое в файле userBasket.txt\n"+ ANSI_RESET);
                                     } catch (Exception e) {
                                         throw new RuntimeException(e);
                                     }
