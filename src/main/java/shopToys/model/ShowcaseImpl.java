@@ -117,4 +117,32 @@ public class ShowcaseImpl implements  Showcase {
             System.out.println(ex.getMessage());
         }
     }
+
+    @Override
+    public Toy returnToyShowcase(String uinToy, String numberToys) {
+        ArrayList<Toy> allToys = new ArrayList<>(getAllToys());
+        Toy userBasket = new Toy();
+        boolean flag = false;
+        for (int i=0; i<allToys.size();i++){
+            if (Long.parseLong(uinToy.trim())==allToys.get(i).getUin()){
+                if (Integer.parseInt(numberToys.trim())<=allToys.get(i).getQuantity()) {
+                    userBasket.setId(1);
+                    userBasket.setUin(allToys.get(i).getUin());
+                    userBasket.setName(allToys.get(i).getName());
+                    userBasket.setType(allToys.get(i).getType());
+                    userBasket.setPrice(allToys.get(i).getPrice());
+                    userBasket.setQuantity(Integer.parseInt(numberToys.trim()));
+
+                    break;
+                }
+                else {
+                    flag = true;
+                    System.out.printf("Товар с UIN: %s в наличии только %s штук\n ",uinToy,allToys.get(i).getQuantity());
+                }
+            }
+
+        }
+        if ((userBasket.getQuantity() == 0) & !flag) System.out.printf("Товар с UIN: %s в магазине отсутствует\n ",uinToy);
+        return userBasket;
+    }
 }

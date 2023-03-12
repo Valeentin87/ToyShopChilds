@@ -30,6 +30,10 @@ public class Toy {
         this.quantity = quantity;
     }
 
+    public Toy() {
+
+    }
+
 
     public int getQuantity() {
         return quantity;

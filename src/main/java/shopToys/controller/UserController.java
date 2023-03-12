@@ -28,6 +28,12 @@ public class UserController {
         showcase.delToyShowcase(uin);
     }
 
+    public void putInBasket(String uinToy, String numberToys) {
+        showcase.returnToyShowcase(uinToy,numberToys);
+
+    }
+
+
     public void viewAllТoys() {
         List<Toy> toys = showcase.getAllToys();
         for (Toy toy : toys) {

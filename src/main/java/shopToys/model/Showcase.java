@@ -12,4 +12,6 @@ public interface Showcase {
 
     ArrayList<Toy> PrizeBasket();
     void savePrizeBasket(List<Toy> toys);
+
+    Toy returnToyShowcase(String uinToy,String numberToys);
 }
