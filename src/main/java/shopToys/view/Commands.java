@@ -13,5 +13,6 @@ public enum Commands {
     FORTUNE,
     CASTBASKET,
     EXIT,
-    BACK
+    BACK,
+    HELP
 }

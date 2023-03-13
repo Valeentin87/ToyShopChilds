@@ -33,10 +33,18 @@ public class ViewUser {
                 case MANAGER:
                     while (true) {
                         String commandManager = prompt(ANSI_RED + "***** Введите пароль ******\n" + ANSI_RESET +
-                                ANSI_BLUE + "Поле для ввода пароля: " + ANSI_RESET);
+                                ANSI_BLUE + "Поле для ввода пароля (для проверки преподавателем GB пароль - shop): " + ANSI_RESET);
                         if (commandManager.equals("shop")) {
                             commandManager = prompt(ANSI_YELLOW + "************** Уважаемый сотрудник магазина HappyChildren" +
-                                    " для работы с каталогом товаров выберите команду *************\n" + ANSI_RESET + ANSI_BLUE +
+                                    " для работы с каталогом товаров выберите команду *************\n" + ANSI_RESET +
+                                    ANSI_RED+"не забудте сформировать призовую корзину и разыграть её!!!"+ANSI_RESET+
+                                    "локация файлов:\n" +
+                                    "showcase.txt   -  каталог имеющихся в магазине товаров (динамически изменяется при совершении заказов)\n"+
+                                    "prizeBasket.txt   - содержимое призовой корзины, на основании количества имеющихся товаров\n"+
+                                    "uinOrders.txt  -  список уникальных номеров оформленных заказов\n"+
+                                    "userBasket.txt  -  информация о последнем оформленном заказе\n"+
+                                    "fortunes.txt  - список победителей розыгрыша\n"+
+                                    ANSI_BLUE +
                                     "Введите команду из нижеперечисленных (регистр не важен):" + ANSI_RESET + "\nДобавить товар на витрину:\n\t\t\t\t - " + ANSI_RED + "CREATE" + ANSI_RESET + "\nНайти товар по названию: \n\t\t\t\t" +
                                     " -" + ANSI_RED + " READ" + ANSI_RESET + "\nСформировать призовую корзину: \n\t\t\t\t" + ANSI_RED + "PRIZEBASKET\n" + ANSI_RESET +"\nРазыграть призовую корзину: \n\t\t\t\t" + ANSI_RED + "CASTBASKET\n" + ANSI_RESET + "\nУбрать товар с витрины:\n\t\t\t\t -" + ANSI_RED + " DELETE" + ANSI_RESET + "\n" +
                                     "Выйти:\n\t\t\t\t - " + ANSI_RED + "EXIT\n" + ANSI_RESET + ANSI_BLUE + "Поле для ввода команды: " + ANSI_RESET);
@@ -85,6 +93,7 @@ public class ViewUser {
                                     continue;
                             }
                         }
+                        System.out.println(ANSI_RED+"ПАРОЛЬ НЕ ВЕРНЫЙ - ПЕРЕВОЖУ ВАС В РЕЖИМ ОБЫЧНОГО ПОСЕТИТЕЛЯ!");
                         break;
                     }
                 case USER:
@@ -93,7 +102,7 @@ public class ViewUser {
                                     " для работы с каталогом товаров выберите команду *************\n" + ANSI_RESET + ANSI_BLUE +
                                     "Введите команду из нижеперечисленных (регистр не важен):" + ANSI_RESET + "\nПросмотреть весь имеющийся ассортимент:\n\t\t\t\t - " + ANSI_RED + "VIEW" + ANSI_RESET + "\nНайти товар по названию: \n\t\t\t\t" +
                                     " -" + ANSI_RED + " READ" + ANSI_RESET + "\nОформить заказ: \n\t\t\t\t" +" -"+ ANSI_RED + "  PUT" + ANSI_RESET + "\nПосмотреть победителей розыгрыша призовой корзины \n\t\t\t\t -" + ANSI_RED + " FORTUNE" + ANSI_RESET+
-                                    "\nВернуться назад:\n\t\t\t\t - " + ANSI_RED + "BACK\n" + ANSI_RESET + ANSI_BLUE + "Поле для ввода команды: " + ANSI_RESET);
+                                    "\nПосмотреть информацию о магазине\n\t\t\t\t - " + ANSI_RED + "HELP\n" + ANSI_RESET+"\nВернуться назад:\n\t\t\t\t - " + ANSI_RED + "BACK\n" + ANSI_RESET  + ANSI_BLUE + "Поле для ввода команды: " + ANSI_RESET);
                             com1 = Commands.valueOf(commandManager.toUpperCase());
                             if (com1 == Commands.BACK) break;
                             switch (com1) {
@@ -136,7 +145,14 @@ public class ViewUser {
                                     System.out.println(ANSI_BLUE + "************ПОЛЬЗОВАТЕЛИ,ПОБЕДИВШИЕ В РОЗЫГРЫШЕ ПРИЗОВОЙ КОРЗИНЫ*************** " + ANSI_RESET);
                                     userController.showFortunes();
                                     continue;
-
+                                case HELP:
+                                    String help ="Уважаемый посетитель!!!\n" +
+                                            "Каждый, кто оформил заказ хотя бы на одно наименование будет участвовать в конце недели в розыгрыше призовой корзины\n" +
+                                            "При оформлении заказа вам будут отправлен его уникальный номер, по которому можно будет получить заказ на пункте выдачи\n" +
+                                            "Список победителей можно проверить нажав кнопку FORTUNE\n" +
+                                            "оформите зазаз и ждите ФОРТУНЫ!!!!";
+                                    System.out.println(help);
+                                    continue;
                             }
 
                         break;
