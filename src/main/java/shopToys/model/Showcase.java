@@ -24,7 +24,7 @@ public interface Showcase {
 
     String getUinOrder();
 
-    void castPrizeBasket();
+    ArrayList<FortuneToy> castPrizeBasket();
 
 
 }

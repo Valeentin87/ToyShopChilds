@@ -1,5 +1,6 @@
 package shopToys.controller;
 
+import shopToys.model.FortuneToy;
 import shopToys.model.Showcase;
 import shopToys.model.Toy;
 
@@ -92,5 +93,11 @@ public class UserController {
 
     public void delFromShowcase(){
          showcase.delToyShowcase();
+    }
+
+    public ArrayList<FortuneToy> castPrizeBasket()
+    {
+        return showcase.castPrizeBasket();
+
     }
 }

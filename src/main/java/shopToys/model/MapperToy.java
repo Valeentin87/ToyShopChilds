@@ -9,7 +9,7 @@ public class MapperToy {
         public static String map(Toy toy) {
             double priceLast = toy.getPrice();
             String s;
-            s = String.format("%f",priceLast);
+            s = String.format("%.2f",priceLast);
             String[] spl = s.split(",");
             String newFormatPrice = spl[0].trim()+"."+spl[1].trim();
             return String.format("%3d|%6d|%25s|%25s|%12s|%3d", toy.getId(),toy.getUin(), toy.getName(), toy.getType(),

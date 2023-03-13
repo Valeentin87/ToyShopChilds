@@ -287,13 +287,24 @@ public class ShowcaseImpl implements  Showcase {
     }
 
     @Override
-    public void castPrizeBasket() {
+    public ArrayList<FortuneToy> castPrizeBasket() {
         ArrayList<Toy> prizeBasketToys = new ArrayList<>(getPrizeToys());
         ArrayList<String> allUsers = new ArrayList<>(fortuneUsers());
-        ArrayList<String> fortunesUsers = new ArrayList<>();
-
+        ArrayList<FortuneToy> fortunesUsers = new ArrayList<>();
+        Random rndUser = new Random();
         int numberFortuneUser;
-
-
+        for(int i = 0; i<prizeBasketToys.size();i++){
+            numberFortuneUser = rndUser.nextInt(allUsers.size());
+            FortuneToy fortuneToy = new FortuneToy(allUsers.get(numberFortuneUser));
+            fortuneToy.setId(prizeBasketToys.get(i).getId());
+            fortuneToy.setName(prizeBasketToys.get(i).getName());
+            fortuneToy.setType(prizeBasketToys.get(i).getType());
+            fortuneToy.setQuantity(prizeBasketToys.get(i).getQuantity());
+            fortuneToy.setPrice(prizeBasketToys.get(i).getPrice());
+            fortuneToy.setUin(prizeBasketToys.get(i).getUin());
+            fortunesUsers.add(fortuneToy);
+            allUsers.remove(numberFortuneUser);
+        }
+        return fortunesUsers;
     }
 }

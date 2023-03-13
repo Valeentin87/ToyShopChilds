@@ -1,6 +1,7 @@
 package shopToys.view;
 
 import shopToys.controller.UserController;
+import shopToys.model.FortuneToy;
 import shopToys.model.Toy;
 
 import java.util.ArrayList;
@@ -74,6 +75,13 @@ public class ViewUser {
                                 case PRIZEBASKET:
                                     System.out.println(ANSI_BLUE + "Сформирована корзина призовых товаров: " + ANSI_RESET);
                                     userController.CreatePrizeBasket();
+                                    continue;
+                                case CASTBASKET:
+                                    System.out.println(ANSI_BLUE + "Представляем список пользователей, которые выиграли призовые игрушки: " + ANSI_RESET);
+                                    for (FortuneToy user:userController.castPrizeBasket())
+                                    {
+                                        System.out.println(user);
+                                    }
                                     continue;
                             }
                         }
