@@ -4,9 +4,6 @@ import shopToys.controller.UserController;
 import shopToys.model.*;
 import shopToys.view.ViewUser;
 
-import java.io.*;
-import java.util.ArrayList;
-
 public class Main {
     public static void main(String[] args) {
 
