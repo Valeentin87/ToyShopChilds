@@ -22,17 +22,45 @@ public class ShowcaseImpl implements  Showcase {
     }
 
     @Override
+    public List<Toy> getPrizeToys() {
+        List<String> lines = toysOperation.readPrizeToys();
+        List<Toy> toys = new ArrayList<>();
+        for (String line : lines) {
+            toys.add(mapper.map(line));
+        }
+        return toys;
+    }
+
+    @Override
+    public ArrayList<String> fortuneUsers() {
+        ArrayList<String> lines = new ArrayList<>();
+        try {
+            File file = new File("uinOrders.txt");
+            FileReader fr = new FileReader(file);
+            BufferedReader reader = new BufferedReader(fr);
+            String line = reader.readLine();
+            if (line != null) {
+                lines.add(line);
+            }
+            while (line != null) {
+                line = reader.readLine();
+                if (line != null) {
+                    lines.add(line);
+                }
+            }
+            fr.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return  lines;
+    }
+
+    @Override
     public int CreateToy(Toy toy) {
         List<Toy> toys = getAllToys();
         int idCreate;
-    //    for (Toy item : toys) {
-    //        int id = item.getId();
-    //        if (max < id){
-    //            max = id;
-    //        }
-    //    }
-    //    int newId = max + 1;
-    //    toy.setId(newId);
         idCreate = toy.getQuantity();
         toys.add(toy);
         List<String> lines = new ArrayList<>();
@@ -255,6 +283,17 @@ public class ShowcaseImpl implements  Showcase {
             System.out.println(ex.getMessage());
         }
         return uinOrderStr;
+
+    }
+
+    @Override
+    public void castPrizeBasket() {
+        ArrayList<Toy> prizeBasketToys = new ArrayList<>(getPrizeToys());
+        ArrayList<String> allUsers = new ArrayList<>(fortuneUsers());
+        ArrayList<String> fortunesUsers = new ArrayList<>();
+
+        int numberFortuneUser;
+
 
     }
 }

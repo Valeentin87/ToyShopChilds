@@ -6,6 +6,8 @@ import java.util.Set;
 
 public interface Showcase {
     List<Toy> getAllToys();
+    List<Toy> getPrizeToys();
+    ArrayList<String> fortuneUsers();
     int CreateToy(Toy toy);
     //void NewVersionNote(Note note);
 
@@ -21,6 +23,8 @@ public interface Showcase {
     List<Toy> getBasket(ArrayList<String> allUin, ArrayList<String> allNumbers);
 
     String getUinOrder();
+
+    void castPrizeBasket();
 
 
 }

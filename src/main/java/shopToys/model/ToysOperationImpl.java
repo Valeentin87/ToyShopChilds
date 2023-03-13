@@ -49,6 +49,32 @@ public class ToysOperationImpl implements ToysOperation {
     }
 
     @Override
+    public List<String> readPrizeToys() {
+        List<String> lines = new ArrayList<>();
+        try {
+            File file = new File("prizeBasket.txt");
+            FileReader fr = new FileReader(file);
+            BufferedReader reader = new BufferedReader(fr);
+            String line = reader.readLine();
+            if (line != null) {
+                lines.add(line);
+            }
+            while (line != null) {
+                line = reader.readLine();
+                if (line != null) {
+                    lines.add(line);
+                }
+            }
+            fr.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return lines;
+    }
+
+    @Override
     public void saveAllToys(List<String> lines) {
         try (FileWriter writer = new FileWriter("showcase.txt", false)) {
             for (String line : lines) {

@@ -37,7 +37,7 @@ public class ViewUser {
                             commandManager = prompt(ANSI_YELLOW + "************** Уважаемый сотрудник магазина HappyChildren" +
                                     " для работы с каталогом товаров выберите команду *************\n" + ANSI_RESET + ANSI_BLUE +
                                     "Введите команду из нижеперечисленных (регистр не важен):" + ANSI_RESET + "\nДобавить товар на витрину:\n\t\t\t\t - " + ANSI_RED + "CREATE" + ANSI_RESET + "\nНайти товар по названию: \n\t\t\t\t" +
-                                    " -" + ANSI_RED + " READ" + ANSI_RESET + "\nСформировать призовую корзину: \n\t\t\t\t" + ANSI_RED + "PRIZEBASKET\n" + ANSI_RESET + "\nУбрать товар с витрины:\n\t\t\t\t -" + ANSI_RED + " DELETE" + ANSI_RESET + "\n" +
+                                    " -" + ANSI_RED + " READ" + ANSI_RESET + "\nСформировать призовую корзину: \n\t\t\t\t" + ANSI_RED + "PRIZEBASKET\n" + ANSI_RESET +"\nРазыграть призовую корзину: \n\t\t\t\t" + ANSI_RED + "CASTBASKET\n" + ANSI_RESET + "\nУбрать товар с витрины:\n\t\t\t\t -" + ANSI_RED + " DELETE" + ANSI_RESET + "\n" +
                                     "Выйти:\n\t\t\t\t - " + ANSI_RED + "EXIT\n" + ANSI_RESET + ANSI_BLUE + "Поле для ввода команды: " + ANSI_RESET);
                             com1 = Commands.valueOf(commandManager.toUpperCase());
                             switch (com1) {
@@ -50,7 +50,7 @@ public class ViewUser {
                                     String quantity = prompt(ANSI_BLUE + "Количество указанного товара: " + ANSI_BLUE);
                                     userController.saveToy(new Toy(Integer.parseInt(id.trim()), Long.parseLong(uin.trim()), name.trim(), type.trim(),
                                             Double.parseDouble(price.trim()), Integer.parseInt(quantity.trim())));
-                                    break;
+                                    continue;
                                 case READ:
                                     String uIn = prompt(ANSI_BLUE + "Введите название игрушки, которую ищете: " + ANSI_RESET);
                                     try {
@@ -59,7 +59,7 @@ public class ViewUser {
                                     } catch (Exception e) {
                                         throw new RuntimeException(e);
                                     }
-                                    break;
+                                    continue;
                                 case DELETE:
                                     System.out.println(ANSI_BLUE + "Ниже указан список имеющихся товаров: " + ANSI_RESET);
                                     userController.viewAllToys();
@@ -70,11 +70,11 @@ public class ViewUser {
                                     } catch (Exception e) {
                                         throw new RuntimeException(e);
                                     }
-                                    break;
+                                    continue;
                                 case PRIZEBASKET:
                                     System.out.println(ANSI_BLUE + "Сформирована корзина призовых товаров: " + ANSI_RESET);
                                     userController.CreatePrizeBasket();
-
+                                    continue;
                             }
                         }
                         break;

@@ -11,7 +11,7 @@ public enum Commands {
     DELETE,
     PRIZEBASKET,
     FORTUNE,
-    CASE,
+    CASTBASKET,
     EXIT,
     BACK
 }
