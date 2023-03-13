@@ -22,7 +22,7 @@ public class ToysOperationImpl implements ToysOperation {
     public List<String> readAllToys() {
         List<String> lines = new ArrayList<>();
         try {
-            File file = new File(fileName);
+            File file = new File("showcase.txt");
             //создаем объект FileReader для объекта File
             FileReader fr = new FileReader(file);
             //создаем BufferedReader с существующего FileReader для построчного считывания
@@ -50,7 +50,7 @@ public class ToysOperationImpl implements ToysOperation {
 
     @Override
     public void saveAllToys(List<String> lines) {
-        try (FileWriter writer = new FileWriter(fileName, false)) {
+        try (FileWriter writer = new FileWriter("showcase.txt", false)) {
             for (String line : lines) {
                 // запись всей строки
                 writer.write(line);

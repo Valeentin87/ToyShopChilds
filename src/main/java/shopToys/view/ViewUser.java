@@ -48,8 +48,8 @@ public class ViewUser {
                                     String type = prompt(ANSI_BLUE + "Тип игрушки: " + ANSI_BLUE);
                                     String price = prompt(ANSI_BLUE + "Цена игрушки: " + ANSI_BLUE);
                                     String quantity = prompt(ANSI_BLUE + "Количество указанного товара: " + ANSI_BLUE);
-                                    userController.saveToy(new Toy(Integer.parseInt(id), Long.parseLong(uin), name, type,
-                                            Double.parseDouble(price), Integer.parseInt(quantity)));
+                                    userController.saveToy(new Toy(Integer.parseInt(id.trim()), Long.parseLong(uin.trim()), name.trim(), type.trim(),
+                                            Double.parseDouble(price.trim()), Integer.parseInt(quantity.trim())));
                                     break;
                                 case READ:
                                     String uIn = prompt(ANSI_BLUE + "Введите название игрушки, которую ищете: " + ANSI_RESET);

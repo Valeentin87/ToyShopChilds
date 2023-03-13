@@ -6,16 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="cd46ef60-ba79-45fd-b91e-083bc123b55a" name="Changes" comment="модернизировал корзину призовую">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prizeBasket.txt" beforeDir="false" afterPath="$PROJECT_DIR$/prizeBasket.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/showcase.txt" beforeDir="false" afterPath="$PROJECT_DIR$/showcase.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/model/MapperToy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/model/MapperToy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/model/Showcase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/model/Showcase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/model/ShowcaseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/model/ShowcaseImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/model/Toy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/model/Toy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/model/ToysOperationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/model/ToysOperationImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/view/ViewUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/view/ViewUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uinOrders.txt" beforeDir="false" afterPath="$PROJECT_DIR$/uinOrders.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userBasket.txt" beforeDir="false" afterPath="$PROJECT_DIR$/userBasket.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,13 +39,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="shopToys.Main" />

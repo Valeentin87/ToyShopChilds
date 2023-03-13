@@ -24,22 +24,23 @@ public class ShowcaseImpl implements  Showcase {
     @Override
     public int CreateToy(Toy toy) {
         List<Toy> toys = getAllToys();
-        int max = 0;
-        for (Toy item : toys) {
-            int id = item.getId();
-            if (max < id){
-                max = id;
-            }
-        }
-        int newId = max + 1;
-        toy.setId(newId);
+        int idCreate;
+    //    for (Toy item : toys) {
+    //        int id = item.getId();
+    //        if (max < id){
+    //            max = id;
+    //        }
+    //    }
+    //    int newId = max + 1;
+    //    toy.setId(newId);
+        idCreate = toy.getQuantity();
         toys.add(toy);
         List<String> lines = new ArrayList<>();
         for (Toy item: toys) {
             lines.add(mapper.map(item));
         }
         toysOperation.saveAllToys(lines);
-        return newId;
+        return idCreate;
     }
 
     @Override
