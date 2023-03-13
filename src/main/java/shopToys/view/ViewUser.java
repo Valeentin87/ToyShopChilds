@@ -62,7 +62,7 @@ public class ViewUser {
                                     break;
                                 case DELETE:
                                     System.out.println(ANSI_BLUE + "Ниже указан список имеющихся товаров: " + ANSI_RESET);
-                                    userController.viewAllТoys();
+                                    userController.viewAllToys();
                                     String id2 = prompt(ANSI_BLUE + "наберите UIN товара, который хотите удалить: " + ANSI_RESET);
                                     try {
                                         userController.deleteToy(id2);
@@ -91,7 +91,7 @@ public class ViewUser {
                             switch (com1) {
                                 case VIEW:
                                     System.out.println(ANSI_BLUE + "Следующие товары имеются в магазине: " + ANSI_RESET);
-                                    userController.viewAllТoys();
+                                    userController.viewAllToys();
                                     continue;
                                 case READ:
                                     String uIn = prompt(ANSI_BLUE + "Введите название игрушки, которую ищете: " + ANSI_RESET);
@@ -102,8 +102,9 @@ public class ViewUser {
                                         throw new RuntimeException(e);
                                     }
                                     continue;
+
                                 case PUT:
-                                    userController.viewAllТoys();
+                                    userController.viewAllToys();
                                     ArrayList<String> basketUIN = new ArrayList<>();
                                     ArrayList<String> basketNumbers = new ArrayList<>();
                                     String endBasket = " ";
@@ -117,12 +118,14 @@ public class ViewUser {
                                     while (!endBasket.toUpperCase().equals("ДА"));
                                     try {
                                         userController.getUserBasket(basketUIN,basketNumbers);
-
+                                        userController.delFromShowcase();
                                         System.out.printf(ANSI_RED + "\n сформирован заказ под номером " + userController.getNumberOrder()+ "\n содержимое в файле userBasket.txt\n Оплатить заказ необходимо на пункте выдачи\n"+ ANSI_RESET);
                                     } catch (Exception e) {
                                         throw new RuntimeException(e);
                                     }
                                     continue;
+
+
                                 case PRIZEBASKET:
                                     System.out.println(ANSI_BLUE + "Сформирована корзина призовых товаров: " + ANSI_RESET);
                                     userController.CreatePrizeBasket();

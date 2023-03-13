@@ -59,29 +59,71 @@ public class ShowcaseImpl implements  Showcase {
         }
         toysOperation.saveAllToys(lines);
     }
-
-    public void delToyShowcase(String name, String quantity) {
-        String  base;
-        int newQuantity = 0;
-        List<Toy> toys = getAllToys();
-        for(int i = 0;i<toys.size();i++){
-            base = toys.get(i).getName();
-            if((base.equals(name))){
-                if (String.valueOf(toys.get(i).getQuantity()).equals(quantity)){
-                    toys.remove(toys.get(i));
-                }
-                else {
-                    newQuantity = toys.get(i).getQuantity();
-                    newQuantity-=Integer.parseInt(quantity.trim());
-                    toys.get(i).setQuantity(newQuantity);
+    @Override
+    public void delToyShowcase() {
+        ArrayList<String> names = new ArrayList<>();
+        ArrayList<String> quantitys = new ArrayList<>();
+        try {
+            File file = new File("userBasket.txt");
+            FileReader fr = new FileReader(file);
+            BufferedReader reader = new BufferedReader(fr);
+            String line = reader.readLine();
+            if (line != null ) {
+                String[] lines = line.split(";");
+                names.add(lines[1].trim());
+                quantitys.add(lines[2].trim());
+            }
+            while (line != null ) {
+                // считываем остальные строки в цикле
+                line = reader.readLine();
+                if (line != null ) {
+                    String[] lines = line.split(";");
+                    names.add(lines[1].trim());
+                    quantitys.add(lines[2].trim());
                 }
             }
-        List<String> lines = new ArrayList<>();
-        for (Toy toy: toys) {
-            lines.add(mapper.map(toy));
+            fr.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        toysOperation.saveAllToys(lines);
-    }
+
+        ArrayList<Integer> quant = new ArrayList<>();
+        int value = 0;
+        for(int m = 0; m<quantitys.size();m++){
+            value = Integer.parseInt(quantitys.get(m).trim());
+            quant.add(value);
+        }
+
+
+
+        for(int j=0;j<names.size();j++) {
+
+            String base;
+            int newQuantity = 0;
+            ArrayList<Toy> allToys = new ArrayList<>(getAllToys());
+            for (int i = 0; i < allToys.size(); i++) {
+                base = allToys.get(i).getName().trim();
+                if ((base.equals(names.get(j)))) {
+                    if (allToys.get(i).getQuantity() == (int)(quant.get(j))) {
+                        allToys.remove(allToys.get(i));
+                    }
+
+                    else {
+                        newQuantity = allToys.get(i).getQuantity();
+                        newQuantity -= (int)(quant.get(j));
+                        allToys.get(i).setQuantity(newQuantity);
+                    }
+
+                }
+                List<String> lines = new ArrayList<>();
+                for (Toy toy : allToys) {
+                    lines.add(mapper.map(toy));
+                }
+                toysOperation.saveAllToys(lines);
+            }
+        }
     }
 
     @Override

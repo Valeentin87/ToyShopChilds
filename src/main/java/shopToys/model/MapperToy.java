@@ -13,8 +13,8 @@ public class MapperToy {
 
         public Toy map(String line) {
             String[] lines = line.split(",");
-            return new Toy(Integer.parseInt(lines[0]), Long.parseLong(lines[1]), lines[2], lines[3], Double.parseDouble(lines[4]),
-                    Integer.parseInt(lines[5]));
+            return new Toy(Integer.parseInt(lines[0].trim()), Long.parseLong(lines[1].trim()), lines[2].trim(), lines[3].trim(), Double.parseDouble(lines[4].trim()),
+                    Integer.parseInt(lines[5].trim()));
         }
     }
 

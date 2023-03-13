@@ -3,8 +3,7 @@ package shopToys.controller;
 import shopToys.model.Showcase;
 import shopToys.model.Toy;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,11 +20,7 @@ public class UserController {
     public void saveToy(Toy toy) {
         showcase.CreateToy(toy);
     }
-/*
-    public void updateNote(Note note) {
-        repository.NewVersionNote(note);
-    }
-*/
+
     public void deleteToy(String uin) {
         showcase.delToyShowcase(uin);
     }
@@ -40,13 +35,13 @@ public class UserController {
                 // запись всей строки
                 pricePosition = userBasket.get(i).getPrice()*userBasket.get(i).getQuantity();
                 priceBasket+=pricePosition;
-                writer.write(String.valueOf(i+1)+". "+userBasket.get(i).getName()+". "+String.valueOf(userBasket.get(i).getQuantity())+". штуки "+
-                        ". На сумму: " + String.valueOf(pricePosition));
+                writer.write(String.valueOf(i+1)+";"+userBasket.get(i).getName()+";"+String.valueOf(userBasket.get(i).getQuantity())+";штуки"+
+                        ";На сумму:" + String.valueOf(pricePosition));
                 // запись по символам
                 writer.append('\n');
             }
-            writer.write("---------------------------------------------------\n");
-            writer.write("Общая стоимость заказа составляет - "+String.valueOf(priceBasket));
+           // writer.write("---------------------------------------------------\n");
+           // writer.write("Общая стоимость заказа составляет - "+String.valueOf(priceBasket));
             writer.flush();
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
@@ -60,14 +55,14 @@ public class UserController {
     }
 
 
-    public void viewAllТoys() {
+    public void viewAllToys() {
         List<Toy> toys = showcase.getAllToys();
         for (Toy toy : toys) {
             System.out.println(toy);
         }
     }
 
-    public void viewAllТoys(ArrayList<Toy> toys) {
+    public void viewТoys(ArrayList<Toy> toys) {
         for (Toy toy : toys) {
             System.out.println(toy);
         }
@@ -77,7 +72,7 @@ public class UserController {
     public  void CreatePrizeBasket(){
         ArrayList<Toy> prizeToys = showcase.PrizeBasket();
         showcase.savePrizeBasket(prizeToys);
-        viewAllТoys(prizeToys);
+        viewТoys(prizeToys);
     }
 
 
@@ -95,4 +90,7 @@ public class UserController {
         return showcase.getUinOrder();
     }
 
+    public void delFromShowcase(){
+         showcase.delToyShowcase();
+    }
 }
