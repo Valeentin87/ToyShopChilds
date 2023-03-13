@@ -1,10 +1,7 @@
 package shopToys;
 
 import shopToys.controller.UserController;
-import shopToys.model.Showcase;
-import shopToys.model.ShowcaseImpl;
-import shopToys.model.ToysOperation;
-import shopToys.model.ToysOperationImpl;
+import shopToys.model.*;
 import shopToys.view.ViewUser;
 
 import java.io.*;
@@ -58,7 +55,18 @@ public class Main {
         System.out.println(test);
 
  */
-
+        /*
+        Toy toy = new Toy(2,23456,"Ball","Мячи",2345.45,23);
+        double priceLast = toy.getPrice();
+        String s;
+        s = String.format("%f",priceLast);
+        String[] spl = s.split(",");
+        //String newFormatPrice = spl[0].trim()+"."+spl[1].trim();
+        for (String it:spl) {
+            System.out.println(it);
+        }
+        //System.out.println(newFormatPrice);
+        */
 
     }
 }

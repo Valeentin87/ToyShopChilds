@@ -87,7 +87,7 @@ public class Toy {
 
     @Override
     public String toString() {
-        return String.format("UIN: %8d Тип: %25s: Название: %20s Цена: %13.2f Количество: %4d",uin, type,name,price,quantity);
+        return String.format("UIN: %8d Тип: %25s: Название: %20s Цена: %13f Количество: %4d",uin, type,name,price,quantity);
     }
 
     @Override
