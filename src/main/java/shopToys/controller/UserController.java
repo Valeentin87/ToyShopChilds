@@ -95,9 +95,9 @@ public class UserController {
          showcase.delToyShowcase();
     }
 
-    public ArrayList<FortuneToy> castPrizeBasket()
-    {
-        return showcase.castPrizeBasket();
+    public ArrayList<FortuneToy> castPrizeBasket(){return showcase.castPrizeBasket();}
 
+    public void showFortunes(){
+        showcase.showFortunes();
     }
 }

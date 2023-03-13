@@ -132,11 +132,10 @@ public class ViewUser {
                                         throw new RuntimeException(e);
                                     }
                                     continue;
-
-
-                                case PRIZEBASKET:
-                                    System.out.println(ANSI_BLUE + "Сформирована корзина призовых товаров: " + ANSI_RESET);
-                                    userController.CreatePrizeBasket();
+                                case FORTUNE:
+                                    System.out.println(ANSI_BLUE + "************ПОЛЬЗОВАТЕЛИ,ПОБЕДИВШИЕ В РОЗЫГРЫШЕ ПРИЗОВОЙ КОРЗИНЫ*************** " + ANSI_RESET);
+                                    userController.showFortunes();
+                                    continue;
 
                             }
 

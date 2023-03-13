@@ -6,15 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="cd46ef60-ba79-45fd-b91e-083bc123b55a" name="Changes" comment="модернизировал корзину призовую">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/showcase1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/model/MapperToy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/model/MapperToy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/model/Showcase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/model/Showcase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/model/ShowcaseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/model/ShowcaseImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/model/Toy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/model/Toy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/shopToys/view/ViewUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/shopToys/view/ViewUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uinOrders.txt" beforeDir="false" afterPath="$PROJECT_DIR$/uinOrders.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

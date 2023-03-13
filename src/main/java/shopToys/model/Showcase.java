@@ -26,5 +26,7 @@ public interface Showcase {
 
     ArrayList<FortuneToy> castPrizeBasket();
 
+    void showFortunes();
+
 
 }

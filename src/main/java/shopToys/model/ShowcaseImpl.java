@@ -305,6 +305,49 @@ public class ShowcaseImpl implements  Showcase {
             fortunesUsers.add(fortuneToy);
             allUsers.remove(numberFortuneUser);
         }
+
+        try (FileWriter writer = new FileWriter("fortunes.txt", false)) {
+
+
+            for (int j = 0; j<fortunesUsers.size(); j++) {
+                String s;
+                s = String.format("Пользователь, оформивший заказ под номером: %s выиграл %s ПОЗДРАВЛЯЕМ!!!",
+                        fortunesUsers.get(j).getFortuneUser(),fortunesUsers.get(j).getName());
+                // запись всей строки
+                writer.write(s);
+                // запись по символам
+                writer.append('\n');
+            }
+            writer.flush();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+
         return fortunesUsers;
+    }
+
+    @Override
+    public void showFortunes() {
+        try {
+            File file = new File("fortunes.txt");
+            FileReader fr = new FileReader(file);
+            BufferedReader reader = new BufferedReader(fr);
+            String line = reader.readLine();
+            if (line != null) {
+                System.out.println(line);
+            }
+            while (line != null) {
+                // считываем остальные строки в цикле
+                line = reader.readLine();
+                if (line != null) {
+                    System.out.println(line);
+                }
+            }
+            fr.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
